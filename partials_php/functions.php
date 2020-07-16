@@ -1,4 +1,8 @@
 
+<!-- Funzione per stampare gli album -->
+<!-- richiede un array contenente i dati da stampare -->
+<!-- ritorna. la stampa a schermo in un  tag li -->
+
 <?php function print_albums($database){
 
   $output = '';
