@@ -1,16 +1,17 @@
 <!-- Includo il database nel file index.PHP -->
-<?php include 'database.php';?>
-<?php include 'functions.php';?>
+<?php include __DIR__ .'/database.php';?>
+<?php include __DIR__ .'/functions.php';?>
 
 
 <main>
 
   <!-- Inizializzo un ciclo foreach per stampare tutti dischi  -->
   <!-- nell'array database nella pagina -->
-
-  <ul>
-    <?php echo print_albums($database) ?>
-  </ul>
+  <div class="container">
+    <ul class="album_container">
+      <?php echo print_albums($database) ?>
+    </ul>
+  </div>
 
 
 </main>

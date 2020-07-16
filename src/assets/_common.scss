@@ -1,0 +1,21 @@
+// RESET
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  background-color: $primary_color;
+}
+
+ul li{
+  list-style: none;
+}
+
+img{
+  width: 100%;
+}
+
+.container{
+  width: 1170px;
+  margin: 0 auto;
+}
