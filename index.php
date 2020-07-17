@@ -19,7 +19,7 @@
     <?php include __DIR__ .'/partials_php/header.php';?>
     <?php include __DIR__ .'/partials_php/main.php';?>
 
-    <script type="text/javascript" src="src/app.js"></script>
+    <!-- <script type="text/javascript" src="src/app.js"></script> -->
 
 
 
