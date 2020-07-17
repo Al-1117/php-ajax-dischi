@@ -3,7 +3,7 @@
 .album_container{
   @include flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   .single_album{
     text-align: center;
