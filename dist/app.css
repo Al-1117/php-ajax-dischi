@@ -25,6 +25,12 @@ header {
   margin-bottom: 100px;
 }
 
+header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 header .logo {
   width: 80px;
   margin-left: 30px;
@@ -59,4 +65,3 @@ header .logo img {
   color: #ffff;
   text-transform: uppercase;
 }
-

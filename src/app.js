@@ -16,6 +16,18 @@ $(document).ready(function(){
         // Stampo gli elementi con l'apposita funzione
         printAlbumsInTemplate(serverResponse);
 
+        $(document).on('change', '.artist_selection select',
+          function(){
+            getArtist(serverResponse);
+
+
+          }
+        );
+
+
+
+
+
 
 
 
@@ -38,6 +50,7 @@ $(document).ready(function(){
 
 
   // FUNZIONE PER STAMPARE GLI ALBUM
+  // <!-- richiede un array contenente i dati da stampare -->
 
   function printAlbumsInTemplate(array){
 
@@ -57,6 +70,39 @@ $(document).ready(function(){
       var html = template(context);
 
       $('.album_container').append(html)
+    }
+
+
+
+
+
+  }
+
+  function getArtist(array){
+
+    $('.album_container').html("");
+
+    var inputValue = $('select').val();
+
+
+    var source = $("#albums-template").html();
+
+    var template = Handlebars.compile(source);
+
+    for (var i = 0; i < array.length; i++) {
+
+      var thisArtist = array[i];
+
+      var artistName = artistList.author;
+
+      var html = template(thisArtist);
+
+      if (inputValue.includes(artistName)) {
+
+        $('.album_container').append(html);
+
+      }
+
     }
 
 
