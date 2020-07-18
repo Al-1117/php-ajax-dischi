@@ -16,23 +16,15 @@ $(document).ready(function(){
         // Stampo gli elementi con l'apposita funzione
         printAlbumsInTemplate(serverResponse);
 
+        // Con la ricerca, tramite select, mostra l'artista selezionato
         $(document).on('change', '.artist_selection select',
           function(){
+            
             getArtist(serverResponse);
 
 
           }
         );
-
-
-
-
-
-
-
-
-
-
       },
       // SE LA CHIAMATA FALLISCE
       // visualizzo un errore
@@ -44,19 +36,17 @@ $(document).ready(function(){
   );
 
 
-
-
-
-
-
   // FUNZIONE PER STAMPARE GLI ALBUM
   // <!-- richiede un array contenente i dati da stampare -->
+  //ritorna gli album stampati nel template
 
   function printAlbumsInTemplate(array){
 
+    // Inserisco le variabili di Handlebars
     var source = $("#albums-template").html();
     var template = Handlebars.compile(source);
 
+    // Inizializzo un ciclo for per scorrere gli elementi dell'array
     for (var i = 0; i < array.length; i++) {
       var singleAlbum = array[i];
 
@@ -72,12 +62,11 @@ $(document).ready(function(){
       $('.album_container').append(html)
     }
 
-
-
-
-
   }
 
+  // <!-- Funzione per trovare gli artisti -->
+  // <!-- richiede un array contente il nome da cercare -->
+  // <!-- ritorna solo gli album dell'artista cercato -->
   function getArtist(array){
 
     $('.album_container').html("");
@@ -93,9 +82,16 @@ $(document).ready(function(){
 
       var thisArtist = array[i];
 
-      var artistName = artistList.author;
+      var artistName = thisArtist.author;
 
-      var html = template(thisArtist);
+      var context = {
+        path: thisArtist.poster,
+        title: thisArtist.title,
+        author: thisArtist.author,
+        year: thisArtist.year,
+      };
+
+      var html = template(context);
 
       if (inputValue.includes(artistName)) {
 
@@ -105,12 +101,6 @@ $(document).ready(function(){
 
     }
 
-
-
-
-
   }
-
-
 
 });
